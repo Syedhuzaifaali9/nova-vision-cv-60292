@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Send, Linkedin, Github, MessageSquare } from 'lucide-react';
+import { Mail, Send, Linkedin, MessageSquare } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -34,19 +34,13 @@ export const Contact = () => {
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://www.linkedin.com/in/syed-huzaifa-ali-16475228a',
       color: 'hover:text-blue-400',
-    },
-    {
-      icon: <Github className="w-6 h-6" />,
-      name: 'GitHub',
-      href: 'https://github.com',
-      color: 'hover:text-purple-400',
     },
     {
       icon: <Mail className="w-6 h-6" />,
       name: 'Email',
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:syedhuzaifash222@gmail.com',
       color: 'hover:text-cyan-400',
     },
   ];
