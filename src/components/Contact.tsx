@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Send, Linkedin, MessageSquare } from 'lucide-react';
+import { Mail, Send, Linkedin, MessageSquare, MessageCircle } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -42,6 +42,12 @@ export const Contact = () => {
       name: 'Email',
       href: 'mailto:syedhuzaifash222@gmail.com',
       color: 'hover:text-cyan-400',
+    },
+    {
+      icon: <MessageCircle className="w-6 h-6" />,
+      name: 'WhatsApp',
+      href: 'https://wa.link/dz6nvs',
+      color: 'hover:text-green-400',
     },
   ];
 
