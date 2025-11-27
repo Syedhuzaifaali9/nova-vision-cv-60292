@@ -11,22 +11,32 @@ export const Certifications = () => {
   const certifications = [
     {
       title: 'Ethical Hacker Fundamentals',
+      issuer: 'LearnKartS',
       description: 'Comprehensive training in ethical hacking, penetration testing, and security vulnerability assessment',
       color: 'from-primary to-secondary',
     },
     {
+      title: 'Foundations of Cybersecurity',
+      issuer: 'Google',
+      description: 'Core cybersecurity concepts, threats, and best practices from Google\'s professional certificate program',
+      color: 'from-secondary to-primary',
+    },
+    {
       title: 'Amazon FBA Wholesaler',
+      issuer: 'Amazon',
       description: 'Professional certification in Amazon FBA wholesale business model and e-commerce strategies',
       color: 'from-secondary to-accent',
     },
     {
       title: 'Graphic Designing',
+      issuer: 'Professional Certification',
       description: 'Expertise in visual design, digital graphics, and creative communication',
       color: 'from-accent to-primary',
     },
     {
       title: 'Meta Front-End Development',
-      description: 'Meta / Coursera certification in modern front-end web development technologies',
+      issuer: 'Meta / Coursera',
+      description: 'Modern front-end web development technologies and best practices',
       color: 'from-primary to-accent',
     },
   ];
@@ -64,9 +74,12 @@ export const Certifications = () => {
                     <Award className="w-10 h-10" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
                       {cert.title}
                     </h3>
+                    <p className="text-sm text-muted-foreground mb-3 font-medium">
+                      by {cert.issuer}
+                    </p>
                     <p className="text-foreground/80 leading-relaxed mb-4">
                       {cert.description}
                     </p>
