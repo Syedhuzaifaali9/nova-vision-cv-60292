@@ -26,8 +26,13 @@ export const Navigation = () => {
   ];
 
   const handleDownloadCV = () => {
-    // CV download functionality
-    window.open('/cv-syed-huzaifa-ali.pdf', '_blank');
+    // Force download instead of opening in new tab
+    const link = document.createElement('a');
+    link.href = '/cv-syed-huzaifa-ali.pdf';
+    link.download = 'cv-syed-huzaifa-ali.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
