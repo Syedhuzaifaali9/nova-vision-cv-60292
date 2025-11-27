@@ -8,42 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 40% 3%;
+    --background: 220 45% 2%;
     --foreground: 180 100% 95%;
 
-    --card: 220 35% 6%;
+    --card: 220 40% 5%;
     --card-foreground: 180 100% 95%;
 
-    --popover: 220 35% 6%;
+    --popover: 220 40% 5%;
     --popover-foreground: 180 100% 95%;
 
-    --primary: 190 95% 55%;
-    --primary-foreground: 220 40% 5%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 220 45% 5%;
 
-    --secondary: 280 85% 60%;
-    --secondary-foreground: 220 40% 5%;
+    --secondary: 280 90% 65%;
+    --secondary-foreground: 220 45% 5%;
 
-    --muted: 220 30% 15%;
-    --muted-foreground: 180 20% 65%;
+    --muted: 220 35% 12%;
+    --muted-foreground: 180 30% 70%;
 
-    --accent: 320 90% 65%;
-    --accent-foreground: 220 40% 5%;
+    --accent: 320 100% 70%;
+    --accent-foreground: 220 45% 5%;
 
-    --destructive: 0 85% 60%;
+    --destructive: 0 90% 65%;
     --destructive-foreground: 180 100% 95%;
 
-    --border: 190 50% 25%;
-    --input: 220 30% 12%;
-    --ring: 190 95% 55%;
+    --border: 180 70% 30%;
+    --input: 220 35% 10%;
+    --ring: 180 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Cyber theme custom colors */
-    --cyber-glow: 190 95% 55%;
-    --cyber-glow-secondary: 280 85% 60%;
-    --cyber-glow-accent: 320 90% 65%;
-    --cyber-dark: 220 40% 3%;
-    --cyber-darker: 220 45% 2%;
+    /* Enhanced Cyber theme colors */
+    --cyber-glow: 180 100% 50%;
+    --cyber-glow-secondary: 280 90% 65%;
+    --cyber-glow-accent: 320 100% 70%;
+    --cyber-dark: 220 45% 2%;
+    --cyber-darker: 220 50% 1%;
+    --cyber-neon-green: 140 100% 50%;
+    --cyber-neon-pink: 320 100% 70%;
+    --cyber-neon-blue: 200 100% 60%;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-glow)), hsl(var(--cyber-glow-secondary)));
+    --gradient-cyber-vertical: linear-gradient(180deg, hsl(var(--cyber-glow)), hsl(var(--cyber-glow-accent)));
+    --gradient-dark: linear-gradient(180deg, hsl(var(--cyber-darker)), hsl(var(--cyber-dark)));
+    
+    /* Shadows */
+    --shadow-cyber: 0 0 20px hsl(var(--cyber-glow) / 0.5);
+    --shadow-cyber-strong: 0 0 40px hsl(var(--cyber-glow) / 0.8);
+    --shadow-neon: 0 0 30px hsl(var(--cyber-glow-accent) / 0.6);
   }
 }
 
@@ -54,22 +67,147 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Orbitron', 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
   }
 
   .glow-text {
-    text-shadow: 0 0 20px hsl(var(--cyber-glow) / 0.5),
-                 0 0 40px hsl(var(--cyber-glow) / 0.3);
+    text-shadow: 0 0 10px hsl(var(--cyber-glow) / 0.8),
+                 0 0 20px hsl(var(--cyber-glow) / 0.6),
+                 0 0 40px hsl(var(--cyber-glow) / 0.4);
+  }
+
+  .glow-text-secondary {
+    text-shadow: 0 0 10px hsl(var(--cyber-glow-secondary) / 0.8),
+                 0 0 20px hsl(var(--cyber-glow-secondary) / 0.5);
+  }
+
+  .glow-text-accent {
+    text-shadow: 0 0 10px hsl(var(--cyber-glow-accent) / 0.8),
+                 0 0 20px hsl(var(--cyber-glow-accent) / 0.5);
   }
 
   .glow-border {
-    box-shadow: 0 0 20px hsl(var(--cyber-glow) / 0.3),
-                inset 0 0 20px hsl(var(--cyber-glow) / 0.1);
+    box-shadow: 0 0 20px hsl(var(--cyber-glow) / 0.5),
+                inset 0 0 20px hsl(var(--cyber-glow) / 0.15);
+    border: 1px solid hsl(var(--cyber-glow) / 0.5);
+  }
+
+  .glow-border-secondary {
+    box-shadow: 0 0 20px hsl(var(--cyber-glow-secondary) / 0.5),
+                inset 0 0 20px hsl(var(--cyber-glow-secondary) / 0.15);
+    border: 1px solid hsl(var(--cyber-glow-secondary) / 0.5);
   }
 
   .glass-effect {
-    background: hsl(var(--card) / 0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border) / 0.3);
+    background: hsl(var(--card) / 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.4);
+  }
+
+  .glass-effect-strong {
+    background: hsl(var(--card) / 0.5);
+    backdrop-filter: blur(30px);
+    border: 1px solid hsl(var(--border) / 0.6);
+  }
+
+  .terminal-text {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    color: hsl(var(--cyber-neon-green));
+    text-shadow: 0 0 10px hsl(var(--cyber-neon-green) / 0.5);
+  }
+
+  .glitch {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch-1 2.5s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-2px, -2px);
+    opacity: 0.8;
+  }
+
+  .glitch::after {
+    animation: glitch-2 2s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(2px, 2px);
+    opacity: 0.8;
+  }
+
+  .scan-lines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-lines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      transparent 50%,
+      hsl(var(--cyber-glow) / 0.05) 50%
+    );
+    background-size: 100% 4px;
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+  }
+
+  .neon-box {
+    position: relative;
+    padding: 2px;
+    background: linear-gradient(135deg, hsl(var(--cyber-glow)), hsl(var(--cyber-glow-secondary)), hsl(var(--cyber-glow-accent)));
+    border-radius: var(--radius);
+  }
+
+  .neon-box-inner {
+    background: hsl(var(--background));
+    border-radius: calc(var(--radius) - 2px);
+    padding: 1rem;
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--cyber-glow) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--cyber-glow) / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+
+  @keyframes glitch-1 {
+    0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%); }
+    10% { clip-path: polygon(0 15%, 100% 15%, 100% 65%, 0 65%); }
+    20% { clip-path: polygon(0 30%, 100% 30%, 100% 80%, 0 80%); }
+    30% { clip-path: polygon(0 5%, 100% 5%, 100% 50%, 0 50%); }
+  }
+
+  @keyframes glitch-2 {
+    0%, 100% { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
+    15% { clip-path: polygon(0 70%, 100% 70%, 100% 95%, 0 95%); }
+    25% { clip-path: polygon(0 25%, 100% 25%, 100% 60%, 0 60%); }
+    35% { clip-path: polygon(0 45%, 100% 45%, 100% 85%, 0 85%); }
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
   }
 }
